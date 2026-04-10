@@ -9,7 +9,7 @@ const News= (props) => {
  const [articles, setArticles] = useState([]);
  const [loading, setLoading] = useState(false);
  const [page, setPage] = useState(1);
- const [totalResults, setTotalResults] = useState(0);
+ 
  const [hasMore, setHasMore] = useState(true);
     
    
@@ -20,7 +20,7 @@ const updateNews = async ()=>{
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(parsedData.articles)
-    setTotalResults(parsedData.totalResults)
+    
     setLoading(false);
    
    }
@@ -47,7 +47,7 @@ const fetchMoreData = async () => {
         return;
     }
     setArticles(articles.concat(parsedData.articles));
-    setTotalResults(parsedData.totalResults);
+   
 
   
   };
